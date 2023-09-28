@@ -1,0 +1,54 @@
+{
+    "Name": "My JanusGraph",
+    "Connection": {
+        "Type": "janusgraph",
+        "Host": "localhost",
+        "Port": 8182,
+        "EnableSsl": false,
+        "UserName": "",
+        "Password": "",
+        "GraphName": "graph",
+        "IsEncryptedPassword": false
+    },
+    "Properties": [
+        {
+            "Key": "tags",
+            "DataType": "string",
+            "Cardinality": "SET"
+        },
+        {
+            "Key": "name",
+            "DataType": "string"
+        }
+    ],
+
+    "Vertices": [
+        {
+            "Label": "user"
+        },
+        {
+            "Label": "book"
+        }
+    ],
+
+    "Edges": [
+        {
+            "Label": "owned"
+        }
+    ],
+
+    "CompositeIndexes": [
+        {
+            "Name": "index_name",
+            "PropertyKey": "name"
+        }
+    ],
+
+    "MixedIndexes": [
+        {
+            "Name": "index_tags",
+            "PropertyKey": "tags",
+            "MappingType": "TEXTSTRING"
+        }
+    ]
+}
