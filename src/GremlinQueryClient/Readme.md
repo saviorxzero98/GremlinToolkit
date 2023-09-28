@@ -20,7 +20,7 @@ using (var client = new GenericGremlinClient(config))
 
     // Get Vertex
     var result = source.V()
-                       .Has("Name", TextP.Containing("john"))
+                       .Has("Name", "john")
                        .Next();
 }
 ```
