@@ -61,7 +61,7 @@ PostCommandResponse reposnse = await client.PostGremlinCommandAsync(request);
 
 * **Post SQL Command**
 
-```json
+```c#
 // OrientDB REST Config, OrientDB Rest API default port is 2480.
 var config = new OrientDBConfig().SetHost("localhost", 2480)
                                  .SetAccount("root", "<Your Password>")
