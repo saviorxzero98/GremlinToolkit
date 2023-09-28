@@ -64,8 +64,6 @@ string query5 = GraphTraversal.Graph()
 
 ### (2) Edge
 
-### 
-
 * **Gremlin Query**
 
 ```groovy
