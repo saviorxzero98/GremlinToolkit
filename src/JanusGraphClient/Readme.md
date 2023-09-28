@@ -6,7 +6,7 @@
 
 ## Usage
 
-* **Gremlin Query**
+* **Graph Query**
 
 ```c#
 // JanusGraph Config
