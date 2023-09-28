@@ -1,7 +1,6 @@
 # JanusGraph Management
 
-* 提供一個快速執行完 JanusGraph Schema 和 Index 的建置
-    * 透過定義 JSON 來批示建置 JanusGraph  所需的 Schema 和 Index
+* 透過定義 JSON 來批示建置 JanusGraph  所需的 Schema 和 Index，批次快速執行 JanusGraph 設定的建置
 * 使用  [JanusGraphClient](../JanusGraphClient)
 
 

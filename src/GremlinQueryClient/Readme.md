@@ -1,6 +1,6 @@
 # Gremlin Query Client
 
-提供 Gremlin Query Client，同時也提供一些擴充函式
+提供 Generic Gremlin Client，同時也提供一些擴充函式
 
 ## Usage
 
