@@ -19,6 +19,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             _client = client;
         }
 
+        /// <summary>
+        /// Register Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<ManagementActionReport> RegisterIndexAsync(string indexName)
         {
             try
@@ -52,6 +57,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return ManagementActionReport.Fail(e);
             }
         }
+
+        /// <summary>
+        /// Start Register Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <param name="currentAttempts"></param>
+        /// <returns></returns>
         protected async Task<ManagementActionReport> StartRegisterIndexAsync(string indexName, int currentAttempts)
         {
             if (currentAttempts > Attempts)
@@ -80,6 +92,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             return await StartRegisterIndexAsync(indexName, attempts);
         }
 
+        /// <summary>
+        /// Reindex
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<ManagementActionReport> ReindexAsync(string indexName)
         {
             try
@@ -121,6 +138,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return ManagementActionReport.Fail(e);
             }
         }
+
+        /// <summary>
+        /// Start Reindex
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <param name="currentAttempts"></param>
+        /// <returns></returns>
         protected async Task<ManagementActionReport> StartReindexAsync(string indexName, int currentAttempts)
         {
             if (currentAttempts > Attempts)
@@ -149,6 +173,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             return await StartReindexAsync(indexName, attempts);
         }
 
+        /// <summary>
+        /// Enable Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<ManagementActionReport> EnableIndexAsync(string indexName)
         {
             try
@@ -190,6 +219,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return ManagementActionReport.Fail(e);
             }
         }
+
+        /// <summary>
+        /// Start Enanle Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <param name="currentAttempts"></param>
+        /// <returns></returns>
         protected async Task<ManagementActionReport> StartEnableIndexAsync(string indexName, int currentAttempts)
         {
             if (currentAttempts > Attempts)
@@ -219,6 +255,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             return await StartEnableIndexAsync(indexName, attempts);
         }
 
+        /// <summary>
+        /// Disable Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<ManagementActionReport> DisableIndexAsync(string indexName)
         {
             try
@@ -250,6 +291,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return ManagementActionReport.Fail(e);
             }
         }
+
+        /// <summary>
+        /// Start Disable Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <param name="currentAttempts"></param>
+        /// <returns></returns>
         protected async Task<ManagementActionReport> StartDisableIndexAsync(string indexName, int currentAttempts)
         {
             if (currentAttempts > Attempts)
@@ -278,6 +326,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             return await StartDisableIndexAsync(indexName, attempts);
         }
 
+        /// <summary>
+        /// Remove Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<ManagementActionReport> RemoveIndexAsync(string indexName)
         {
             try
@@ -311,14 +364,19 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             }
         }
 
-
+        /// <summary>
+        /// Get Index Status
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         protected async Task<string> GetIndexStatusAsync(string indexName)
         {
             var handler = new GraphIndexActionHandler(_client);
 
             // 取得目前 Index 狀態
             var currentStatus = await handler.GetStatusAsync(indexName);
-            if (!currentStatus.IsSuccess ||
+            if (currentStatus == null ||
+                !currentStatus.IsSuccess ||
                 currentStatus.Statuses == null ||
                 !currentStatus.Statuses.Any(s => !string.IsNullOrWhiteSpace(s)))
             {
@@ -326,9 +384,14 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             }
 
             // 判斷目前 Index 狀態
-            string state = currentStatus.Statuses.FirstOrDefault(s => !string.IsNullOrWhiteSpace(s)).ToUpper();
+            string state = currentStatus.Statuses.FirstOrDefault(s => !string.IsNullOrWhiteSpace(s));
 
-            switch (state)
+            if (string.IsNullOrEmpty(state))
+            {
+                return IndexStatus.Null;
+            }
+
+            switch (state.ToUpper())
             {
                 case IndexStatus.Installed:
                 case IndexStatus.Registered:
@@ -339,6 +402,5 @@ namespace GQL.JanusGraphClients.Managements.IndexService
 
             return IndexStatus.Null;
         }
-
     }
 }

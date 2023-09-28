@@ -105,7 +105,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphSchema
             // 建立 Variable Name 對照表
             VariableNameMap.Add("${GraphName}", GraphName);
 
-            // 建立 Script
+            // 建立 Groovy Script
             string script = string.Empty;
 
             switch (Type)
@@ -128,7 +128,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphSchema
         }
 
         /// <summary>
-        /// 建立 重新命名 Vertex Label 的 Script
+        /// 建立 重新命名 Vertex Label 的 Groovy Script
         /// </summary>
         /// <returns></returns>
         protected string CreateVertexMappedProperty()
@@ -149,7 +149,7 @@ mgmt.commit();
         }
 
         /// <summary>
-        /// 建立 重新命名 Edge Label Script
+        /// 建立 重新命名 Edge Label Groovy Script
         /// </summary>
         /// <returns></returns>
         protected string CreateEdgeMappedProperty()

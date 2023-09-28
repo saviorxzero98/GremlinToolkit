@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GQL.JanusGraphClients.Managements.ScriptBuilders
+﻿namespace GQL.JanusGraphClients.Managements.ScriptBuilders
 {
     public interface IScriptBuilder
     {
@@ -19,7 +13,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders
         string TraversalSource { get; set; }
 
         /// <summary>
-        /// 建立 Script
+        /// 建立 Groovy Script
         /// </summary>
         /// <returns></returns>
         ScriptResult Build();

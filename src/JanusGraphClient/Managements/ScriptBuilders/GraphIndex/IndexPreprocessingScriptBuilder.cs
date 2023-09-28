@@ -24,7 +24,10 @@
             return this;
         }
 
-
+        /// <summary>
+        /// 建立 Groovy Script
+        /// </summary>
+        /// <returns></returns>
         protected override string BuildScript()
         {
             if (IsInvalid())
@@ -35,7 +38,7 @@
             // 建立 Variable Name 對照表
             VariableNameMap.Add("${GraphName}", GraphName);
 
-            // 建立 Script
+            // 建立 Groovy Script
             // 1. 清空所有已開啟的 Transactions
             // 2. 清空所有已開啟的 Management 的 Instance
             string script = @"

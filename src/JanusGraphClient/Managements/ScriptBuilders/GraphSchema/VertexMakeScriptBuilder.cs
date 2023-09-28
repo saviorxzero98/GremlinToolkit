@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// 建立 Script
+        /// 建立 Groovy Script
         /// </summary>
         /// <returns></returns>
         protected override string BuildScript()
@@ -51,7 +51,7 @@
             // 建立 Variable Name 對照表
             VariableNameMap.Add("${GraphName}", GraphName);
 
-            // 建立 Script
+            // 建立 Groovy Script
             string script = @"
 mgmt = ${GraphName}.openManagement();
 if (mgmt.getVertexLabel(vertexLabel) == null) {

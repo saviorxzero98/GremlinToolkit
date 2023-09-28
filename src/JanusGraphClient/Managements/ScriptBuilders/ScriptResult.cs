@@ -3,7 +3,7 @@
     public class ScriptResult
     {
         /// <summary>
-        /// 腳本內容
+        /// Groovy Script 內容
         /// </summary>
         public string Script { get; set; } = string.Empty;
 

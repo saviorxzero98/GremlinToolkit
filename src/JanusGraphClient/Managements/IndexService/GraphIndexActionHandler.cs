@@ -31,13 +31,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
         /// <returns></returns>
         public async Task<ManagementActionReport> ClearTransactionAndManagementAsync()
         {
-            // 建立 Script
+            // 建立 Groovy Script
             var builder = new IndexPreprocessingScriptBuilder(_graphName);
             ScriptResult scriptResult = builder.Build();
 
             try
             {
-                // 執行 Script
+                // 執行 Groovy Script
                 await _client.SubmitAsync(scriptResult.Script, scriptResult.NamedBindings);
 
                 return ManagementActionReport.Success();
@@ -48,7 +48,11 @@ namespace GQL.JanusGraphClients.Managements.IndexService
             }
         }
 
-
+        /// <summary>
+        /// Get Index Status
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public async Task<GraphIndexStatusReport> GetStatusAsync(string indexName)
         {
             if (string.IsNullOrWhiteSpace(indexName))
@@ -56,13 +60,13 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return GraphIndexStatusReport.Fail();
             }
 
-            // 建立 Script
+            // 建立 Groovy Script
             var builder = new GraphIndexScriptBuilder(indexName, _graphName);
             ScriptResult scriptResult = builder.Build();
 
             try
             {
-                // 執行 Script
+                // 執行 Groovy Script
                 var result = await _client.SubmitAsync<dynamic>(scriptResult.Script, scriptResult.NamedBindings);
 
                 // 解析結果
@@ -81,36 +85,64 @@ namespace GQL.JanusGraphClients.Managements.IndexService
 
         public Task<ManagementActionReport> RegisterIndexAsync(string indexName)
         {
+            // 建立 Groovy Script
             var builder = new UpdateIndexScriptBuilder(indexName, _graphName).SetRegisterIndex();
             return UpdateIndexAsync(builder);
         }
 
+        /// <summary>
+        /// Reindex
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public Task<ManagementActionReport> ReindexAsync(string indexName)
         {
-            // 建立 Script
+            // 建立 Groovy Script
             var builder = new UpdateIndexScriptBuilder(indexName, _graphName).SetReindex();
             return UpdateIndexAsync(builder);
         }
 
+        /// <summary>
+        /// Enable Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public Task<ManagementActionReport> EnableIndexAsync(string indexName)
         {
+            // 建立 Groovy Script
             var builder = new UpdateIndexScriptBuilder(indexName, _graphName).SetEnableIndex();
             return UpdateIndexAsync(builder);
         }
 
+        /// <summary>
+        /// Disable Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public Task<ManagementActionReport> DisableIndexAsync(string indexName)
         {
+            // 建立 Groovy Script
             var builder = new UpdateIndexScriptBuilder(indexName, _graphName).SetDisableIndex();
             return UpdateIndexAsync(builder);
         }
 
+        /// <summary>
+        /// Remove Index
+        /// </summary>
+        /// <param name="indexName"></param>
+        /// <returns></returns>
         public Task<ManagementActionReport> RemoveIndexAsync(string indexName)
         {
-            // 建立 Script
+            // 建立 Groovy Script
             var builder = new UpdateIndexScriptBuilder(indexName, _graphName).SetRemoveIndex();
             return UpdateIndexAsync(builder);
         }
 
+        /// <summary>
+        /// Update Index
+        /// </summary>
+        /// <param name="scriptBuilder"></param>
+        /// <returns></returns>
         protected async Task<ManagementActionReport> UpdateIndexAsync(UpdateIndexScriptBuilder scriptBuilder)
         {
             if (scriptBuilder == null)
@@ -118,12 +150,12 @@ namespace GQL.JanusGraphClients.Managements.IndexService
                 return ManagementActionReport.Fail();
             }
 
-            // 建立 Script
+            // 建立 Groovy Script
             ScriptResult scriptResult = scriptBuilder.Build();
 
             try
             {
-                // 執行 Script
+                // 執行 Groovy Script
                 await _client.SubmitAsync<dynamic>(scriptResult.Script, scriptResult.NamedBindings);
 
                 return ManagementActionReport.Success();

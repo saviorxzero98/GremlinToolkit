@@ -123,7 +123,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphSchema
 
 
         /// <summary>
-        /// 建立 重新命名 Vertex Label 的 Script
+        /// 建立 重新命名 Vertex Label 的 Groovy Script
         /// </summary>
         /// <returns></returns>
         protected string CreateChangeVertexLabel()
@@ -139,7 +139,7 @@ mgmt.commit();
         }
 
         /// <summary>
-        /// 建立 重新命名 Edge Label Script
+        /// 建立 重新命名 Edge Label Groovy Script
         /// </summary>
         /// <returns></returns>
         protected string CreateChangeEdgeLabel()
@@ -155,7 +155,7 @@ mgmt.commit();
         }
 
         /// <summary>
-        /// 建立 重新命名 Property Name Script
+        /// 建立 重新命名 Property Name Groovy Script
         /// </summary>
         /// <returns></returns>
         protected string CreateChangePropertyLabel()

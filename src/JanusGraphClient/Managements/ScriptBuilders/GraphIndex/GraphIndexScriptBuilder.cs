@@ -46,7 +46,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphIndex
         }
 
         /// <summary>
-        /// 建立 Script
+        /// 建立 Groovy Script
         /// </summary>
         /// <returns></returns>
         protected override string BuildScript()
@@ -59,7 +59,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphIndex
             // 建立 Variable Name 對照表
             VariableNameMap.Add("${GraphName}", GraphName);
 
-            // 建立 Script
+            // 建立 Groovy Script
             string script = @"
 mgmt = ${GraphName}.openManagement();
 index = mgmt.getGraphIndex(indexName);

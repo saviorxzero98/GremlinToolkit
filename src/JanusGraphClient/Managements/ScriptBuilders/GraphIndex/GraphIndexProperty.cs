@@ -12,6 +12,12 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphIndex
         {
 
         }
+
+        /// <summary>
+        /// 建立 Property
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         public static GraphIndexProperty Create(string propertyName)
         {
             return new GraphIndexProperty()
@@ -19,6 +25,12 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphIndex
                 PropertyKey = propertyName
             };
         }
+        /// <summary>
+        /// 建立 Property
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <param name="mappingType"></param>
+        /// <returns></returns>
         public static GraphIndexProperty Create(string propertyName, string mappingType)
         {
             var property = new GraphIndexProperty()
@@ -45,7 +57,10 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphIndex
             return property;
         }
 
-
+        /// <summary>
+        /// 檢查 Property Key
+        /// </summary>
+        /// <returns></returns>
         public bool IsValid()
         {
             return (!string.IsNullOrEmpty(PropertyKey));

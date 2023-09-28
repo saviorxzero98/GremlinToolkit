@@ -112,7 +112,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphSchema
         }
 
         /// <summary>
-        /// 建立 Script
+        /// 建立 Groovy Script
         /// </summary>
         /// <returns></returns>
         protected override string BuildScript()
@@ -125,7 +125,7 @@ namespace GQL.JanusGraphClients.Managements.ScriptBuilders.GraphSchema
             // 建立 Variable Name 對照表
             VariableNameMap.Add("${GraphName}", GraphName);
 
-            // 建立 Script
+            // 建立 Groovy Script
             string script = @"
 mgmt = ${GraphName}.openManagement();
 if (mgmt.getPropertyKey(propertyName) == null) {
