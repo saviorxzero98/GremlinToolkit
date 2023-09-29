@@ -2,6 +2,8 @@
 
 基於 [Gremlin Query Client](../GremlinQueryClient)，增加 [OrientDB](http://orientdb.org) 專用的函式，例如：Orientdb GraphSON 內容序列化、Orientdb REST Client
 
+* [OrientDB 筆記參考](../../docs/OrientDB) 或是 [官方文件](https://orientdb.org/docs/3.2.x/)
+
 
 
 ## Usage
@@ -117,7 +119,7 @@ PostBatchResponse reposnse = await client.PostBatchAsync(request);
 
 
 
-## Referenct
+## Reference
 
 * [OrientDB REST API Document](https://orientdb.org/docs/3.2.x/misc/OrientDB-REST.html)
 

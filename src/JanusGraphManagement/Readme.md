@@ -1,7 +1,14 @@
 # JanusGraph Management
 
 * 透過定義 JSON 來批示建置 JanusGraph  所需的 Schema 和 Index，批次快速執行 JanusGraph 設定的建置
-* 使用  [JanusGraphClient](../JanusGraphClient)
+    * Vertex Schema 建立
+    * Edge Schema 建立
+    * Property Schema 建立
+    * Index 建立、啟用
+    * Index 停用 **(coming soon...)**
+* 實作方面是透過 Submit JanusGraph Management Gremlin Script 來管理 JanusGraph Schema 和 Index
+    * 使用  [JanusGraphClient](../JanusGraphClient)
+* [JanusGraph Management 筆記](../../docs/JanusGraph/Management) 或是 [官方文件](https://docs.janusgraph.org)
 
 
 

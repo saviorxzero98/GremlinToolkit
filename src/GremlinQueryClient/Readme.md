@@ -2,6 +2,8 @@
 
 提供 Generic Gremlin Client，同時也提供一些擴充函式
 
+* [Gremlin Query Language 語法可以參考這裡](../../docs/GremlinQueryLanguage) 或是 [官方文件](https://tinkerpop.apache.org/docs/current/reference/#_tinkerpop_documentation)
+
 ## Usage
 
 ```c#

@@ -2,6 +2,8 @@
 
 基於 [Gremlin Query Client](../GremlinQueryClient)，增加 [JanusGraph](https://docs.janusgraph.org/) 專用的函式，例如：全文檢索專用語法、JanusGraph Managements (JanusGraph 管理工具)
 
+* [JanusGraph 筆記參考](../../docs/JanusGraph) 或是 [官方文件](https://docs.janusgraph.org/)
+
 
 
 ## Usage

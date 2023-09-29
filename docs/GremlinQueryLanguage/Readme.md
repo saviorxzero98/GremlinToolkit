@@ -1,5 +1,7 @@
 # Gremlin Query Language
 
+>  [Gremlin Query Language](https://tinkerpop.apache.org/docs/current/reference/#_tinkerpop_documentation) 為一個圖形資料庫的查詢語言，目前有支援這個語言作為圖形查詢的資料庫有 [JanusGraph](https://docs.janusgraph.org)、[Azure Cosmos DB](https://azure.microsoft.com/en-US/products/cosmos-db)、[OrientDB](http://orientdb.org)、[ArcadeDB](https://github.com/ArcadeData/arcadedb) ...等
+
 * **[Gremlin Language 筆記整理](GremlinLanguage.md)**
 * **[線上 Gremlin Playground](https://gremlify.com/)**
 
@@ -9,7 +11,7 @@
 
 # SQL to Gremlin 
 
-TODO...
+* **[SQL to Gremlin](http://sql2gremlin.com/)**
 
 
 
@@ -66,9 +68,8 @@ TODO...
 
 ---
 
-# 相關參考
+# Reference
 
-* **[SQL to Gremlin](http://sql2gremlin.com/)**
 * **[TinkerPop Gremlin](http://tinkerpop.apache.org/docs/current/reference/#_tinkerpop_documentation)**
     * **[Graph Traversal Steps](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)**
     * **[Gremlin Client (Console)](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)**

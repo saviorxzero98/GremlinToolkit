@@ -16,6 +16,8 @@
 ## Documents
 
 * [Gremlin Query Language 筆記整理](docs/GremlinQueryLanguage)
+* [JanusGrpah 筆記整理](docs/JanusGraph)
+* [OrientDB 筆記整理](docs/OrientDB)
 
 
 
